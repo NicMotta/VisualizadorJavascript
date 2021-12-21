@@ -138,17 +138,27 @@ function draw(){
 
 
 function guardarCSV(){
-    nuevoCSV.addColumn('x');
-    nuevoCSV.addColumn('y');
-    nuevoCSV.addColumn('z');
 
-    
+    let c1 = "0.00001";
+    let c2 = "0.00002";
+    let c3 = "0.00003";
 
-    for (let index = 0; index < dX.length; index = index + reduccion) {
+    nuevoCSV.addColumn(c1);
+    nuevoCSV.addColumn(c2);
+    nuevoCSV.addColumn(c3);
+
+
+    for (let index = 1; index < dX.length; index = index + reduccion) {
         let newRow = nuevoCSV.addRow();
-        newRow.setNum('x', (dX[index] - offsetX) / escala);
-        newRow.setNum('y', (dY[index] - offsetY) / escala);
-        newRow.setNum('z', (dZ[index] - offsetZ) / escala);
+
+            let a = (dX[index] - offsetX) / escala;
+            let b = (dY[index] - offsetY) / escala;
+            let c = (dZ[index] - offsetZ) / escala;
+
+
+        newRow.setNum(c1, a);
+        newRow.setNum(c2, b);
+        newRow.setNum(c3, c);
     }
 
     saveTable(nuevoCSV, nombreArchivo + ".csv");
