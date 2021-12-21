@@ -59,10 +59,20 @@ function gotFile(file) {
     //tenemosArchivo = true;
 
 function preCarga() {
+    if (data.getColumnCount() == 3) {
     for (let index = 0; index < data.getRowCount(); index++) {
         dX[index] = data.getString(index, 0);
         dY[index] = data.getString(index, 1);
         dZ[index] = data.getString(index, 2);
+        }
+    }
+
+    if (data.getColumnCount() >= 4) {
+        for (let index = 0; index < data.getRowCount(); index++) {
+            dX[index] = data.getString(index, 2);
+            dY[index] = data.getString(index, 3);
+            dZ[index] = data.getString(index, 4);
+            }
         }
 
         //reduccionMin = parseInt((data.getRowCount() * 0.5) / 100);
