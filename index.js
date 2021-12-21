@@ -19,13 +19,13 @@ let nuevoindice = 0;
 let gui;
 var reduccion = 500;
 var reduccionMin = 1;
-var reduccionMax = 700;
+var reduccionMax = 2000;
 var reduccionStep = 1;
 var descargarArchivo = false;
 
 var escala = 5;
 var escalaMin = 1;
-var escalaMax = 20;
+var escalaMax = 50;
 var escalaStep = 1;
 
 var nombreArchivo = '';
@@ -99,7 +99,7 @@ function draw(){
 
     document.getElementById("archivo").style.display = "none";
     document.getElementById("filas").innerHTML = "Datos del archivo original: " + data.getRowCount();
-
+    document.getElementById("columnas").innerHTML = "Columnas del archivo original: " + data.getColumnCount();
 
 
 
