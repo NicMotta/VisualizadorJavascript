@@ -23,7 +23,8 @@ var reduccionMax = 2000;
 var reduccionStep = 1;
 var descargarArchivo = false;
 
-var escala = 5;
+
+var escala = 1;
 var escalaMin = 1;
 var escalaMax = 50;
 var escalaStep = 1;
@@ -74,6 +75,14 @@ function preCarga() {
             dZ[index] = data.getString(index, 4);
             }
         }
+
+    if (data.getColumnCount() >= 9) {
+            for (let index = 0; index < data.getRowCount(); index++) {
+                dX[index] = data.getString(index, 7);
+                dY[index] = data.getString(index, 8);
+                dZ[index] = data.getString(index, 9);
+                }
+            }
 
         //reduccionMin = parseInt((data.getRowCount() * 0.5) / 100);
         //reduccionMax = parseInt((data.getRowCount() * 5) / 100);
@@ -148,17 +157,22 @@ function guardarCSV(){
     nuevoCSV.addColumn(c3);
 
 
+
+
     for (let index = 1; index < dX.length; index = index + reduccion) {
         let newRow = nuevoCSV.addRow();
 
-            let a = (dX[index] - offsetX) / escala;
-            let b = (dY[index] - offsetY) / escala;
-            let c = (dZ[index] - offsetZ) / escala;
+            
+                let a = (dX[index] - offsetX) / escala;
+                let b = (dY[index] - offsetY) / escala;
+                let c = (dZ[index] - offsetZ) / escala;
+            
+            
+            newRow.setNum(c1, a);
+            newRow.setNum(c2, b);
+            newRow.setNum(c3, c);
 
 
-        newRow.setNum(c1, a);
-        newRow.setNum(c2, b);
-        newRow.setNum(c3, c);
     }
 
     saveTable(nuevoCSV, nombreArchivo + ".csv");
