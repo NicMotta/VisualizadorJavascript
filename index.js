@@ -70,17 +70,17 @@ function preCarga() {
 
     if (data.getColumnCount() >= 4) {
         for (let index = 0; index < data.getRowCount(); index++) {
-            dX[index] = data.getString(index, 2);
-            dY[index] = data.getString(index, 3);
-            dZ[index] = data.getString(index, 4);
+            dX[index] = data.getString(index, 3);
+            dY[index] = data.getString(index, 4);
+            dZ[index] = data.getString(index, 5);
             }
         }
 
     if (data.getColumnCount() >= 9) {
             for (let index = 0; index < data.getRowCount(); index++) {
-                dX[index] = data.getString(index, 7);
-                dY[index] = data.getString(index, 8);
-                dZ[index] = data.getString(index, 9);
+                dX[index] = data.getString(index, 6);
+                dY[index] = data.getString(index, 7);
+                dZ[index] = data.getString(index, 8);
                 }
             }
 
