@@ -62,9 +62,9 @@ function gotFile(file) {
 function preCarga() {
     if (data.getColumnCount() == 3) {
     for (let index = 0; index < data.getRowCount(); index++) {
-        dX[index] = data.getString(index, 0);
-        dY[index] = data.getString(index, 1);
-        dZ[index] = data.getString(index, 2);
+        dX[index] = data.getString(index, 0) * 10;
+        dY[index] = data.getString(index, 1) * 10;
+        dZ[index] = data.getString(index, 2) * 10;
         }
     }
 
@@ -163,9 +163,9 @@ function guardarCSV(){
         let newRow = nuevoCSV.addRow();
 
             
-                let a = (dX[index] - offsetX) / escala;
-                let b = (dY[index] - offsetY) / escala;
-                let c = (dZ[index] - offsetZ) / escala;
+                let a = (dX[index] - offsetX) * escala;
+                let b = (dY[index] - offsetY) * escala;
+                let c = (dZ[index] - offsetZ) * escala;
             
             
             newRow.setNum(c1, a);
